@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MySmartWatchApp());
+}
+
+class MySmartWatchApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SmartWatch for Health',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SmartWatchHomePage(),
+    );
+  }
+}
+
+class SmartWatchHomePage extends StatefulWidget {
+  @override
+  _SmartWatchHomePageState createState() => _SmartWatchHomePageState();
+}
+
+class _SmartWatchHomePageState extends State<SmartWatchHomePage> {
+  // Simulated data for irregular heartbeat and temperature
+  double heartRate = 70.0;
+  double temperature = 98.6;
+
+  // Medication reminder
+  bool isMedicationTime = false;
+
+  // SOS alert data
+  bool isSOSAlertSent = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Health SmartWatch'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Heart Rate: $heartRate BPM'),
+            Text('Temperature: $temperature °F'),
+            if (isMedicationTime) Text('Take your medication!'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _sendSOSAlert();
+              },
+              child: Text('SOS Alert'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _scheduleDoctorConsultation();
+              },
+              child: Text('Schedule Consultation'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _showFirstAidInstructions();
+              },
+              child: Text('First Aid Instructions'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _sendSOSAlert() {
+    // Implement SOS alert logic here (e.g., use a messaging service)
+    setState(() {
+      isSOSAlertSent = true;
+    });
+    print('SOS Alert Sent!');
+  }
+
+  void _scheduleDoctorConsultation() {
+    // Implement doctor consultation scheduling logic here
+    print('Doctor Consultation Scheduled!');
+  }
+
+  void _showFirstAidInstructions() {
+    // Implement logic to display first aid instructions
+    print('Displaying First Aid Instructions');
+  }
+
+  // Other methods and logic for irregular heartbeat sensing and temperature monitoring can be added here.
+}
