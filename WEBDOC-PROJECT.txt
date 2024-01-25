@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MediKitApp());
+}
+
+class MediKitApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'MediKit',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MediKitHomePage(),
+    );
+  }
+}
+
+class MediKitHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('MediKit'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Implement SOS button functionality
+                triggerEmergencySOS();
+              },
+              child: Text('Emergency SOS'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement 24/7 doctor consultation
+                initiateDoctorConsultation();
+              },
+              child: Text('Doctor Consultation'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement medical awareness feature
+                searchMedicalInformation('Heart Attack');
+              },
+              child: Text('Medical Awareness'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement smartwatch detection
+                monitorSmartWatch();
+              },
+              child: Text('Smartwatch Detection'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void triggerEmergencySOS() {
+    // Implement SOS functionality
+    // Dispatch ambulance, notify emergency contacts, etc.
+    print('Emergency SOS triggered');
+  }
+
+  void initiateDoctorConsultation() {
+    // Implement 24/7 doctor consultation logic
+    // Show scheduling options, audio/video calls, etc.
+    print('Initiate Doctor Consultation');
+  }
+
+  void searchMedicalInformation(String query) {
+    // Implement medical awareness logic
+    // Display relevant first aid procedures, steps, etc.
+    print('Search Medical Information: $query');
+  }
+
+  void monitorSmartWatch() {
+    // Implement smartwatch detection logic
+    // Monitor temperature, heart rate, and notify on abnormalities.
+    print('Smartwatch Monitoring');
+  }
+}
